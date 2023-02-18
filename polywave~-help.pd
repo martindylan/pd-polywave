@@ -1,0 +1,88 @@
+#N canvas 1096 65 267 678 12;
+#X obj 38 150 cnv 15 477 222 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 38 383 cnv 15 519 235 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X msg 48 399 poly \$1;
+#X msg 48 441 legato \$1;
+#X msg 48 526 bendMode \$1;
+#X msg 48 560 bendRange \$1;
+#X msg 48 589 out \$1;
+#X text 35 126 INLET 1:;
+#X text 35 23 INLET 0:;
+#X obj 38 47 cnv 15 281 63 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X msg 48 57 \$1 \$2;
+#X msg 48 81 bend \$1;
+#X obj 624 47 cnv 15 135 39 empty empty empty 20 12 0 14 -204800 -66577
+0;
+#X text 621 23 OUTLET 0:;
+#X obj 634 57 sig~;
+#X obj 624 126 cnv 15 499 105 empty empty empty 20 12 0 14 -204800
+-66577 0;
+#X msg 634 142 set foo;
+#X text 621 102 OUTLET 1:;
+#X obj 38 629 cnv 15 497 39 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X msg 48 639 state \$1;
+#X text 95 57 mensaje midi (nota y velocity);
+#X text 109 81 pitch bend (de 0 a 16383);
+#X text 137 519 pitch bend afecta a todas las notas o sólo a la última
+(distinto de cero y 0 respectivamente);
+#X text 695 135 donde foo representa una lista de todos los parámetros
+correctamente formateados para ser enviados de vuelta a la abstracción
+\, en otras palabras \, conectar esta salida a un mensaje y cuando
+la abstracción reciba el mensaje [state(] \, se guardará el estado
+actual de la abstracción (tener en cuenta que el mensaje se vaciará
+antes de escribir en él);
+#X text 115 639 escribir un mensaje con el estado actual de la abstracción
+;
+#X text 143 553 rango del pitch bend (hacia arriba o hacia abajo) en
+semitonos (por defecto 2);
+#X text 109 392 elegir entre modo polifónico de 16 voces o monofónico
+(distinto de cero y 0 respectivamente) (por defecto 0);
+#X msg 48 484 anticlick \$1;
+#X text 123 434 usar o no legato (distinto de cero y 0 respectivamente)
+(por defecto 0);
+#X text 102 589 ganancia de salida en dB (por defecto 0);
+#X text 144 477 usar o no usar anticlick (distinto de cero y 0 respectivamente)
+(por defecto 0) (consultar objeto adsr~);
+#X obj 623 311 cnv 15 385 63 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 622 287 DEPENDENCIAS:;
+#X text 630 320 -para que la abstracción funcione debe instalarse
+la abstracción [adsr~] (https://github.com/teaecetyrannis/pd-adsr)
+;
+#X msg 48 160 order \$1;
+#X text 115 160 lados del polígono (se aceptan valores decimales)
+;
+#X msg 48 189 teeth \$1;
+#X text 114 189 tamaño de los "dientes" de cada lado (0-99);
+#X msg 48 223 lerp \$1;
+#X text 108 216 tiempo de interpolación linear al cambiar los valores
+de order y teeth;
+#X msg 48 265 round \$1;
+#X text 115 258 filtro lowpass que se le aplica a la señal del polígono
+antes de convertirla en onda (0-99 \, donde 0 sería completamente
+filtrada y 99 prácticamente sin filtrar);
+#X msg 48 314 pm amount \$1;
+#X text 143 314 índice de la modulación de fase;
+#X msg 48 343 pm freq \$1;
+#X text 128 343 frecuencia de la modulación de fase;
+#X text 674 57 canal izq;
+#X obj 780 47 cnv 15 135 39 empty empty empty 20 12 0 14 -204800 -66577
+0;
+#X obj 790 57 sig~;
+#X text 777 23 OUTLET 1:;
+#X text 830 57 canal der;
+#X connect 2 0 3 0;
+#X connect 3 0 27 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 10 0 11 0;
+#X connect 27 0 4 0;
+#X connect 34 0 36 0;
+#X connect 36 0 38 0;
+#X connect 38 0 40 0;
+#X connect 40 0 42 0;
+#X connect 42 0 44 0;
