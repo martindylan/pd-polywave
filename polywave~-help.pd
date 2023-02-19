@@ -1,4 +1,4 @@
-#N canvas 1096 65 267 678 12;
+#N canvas 913 52 451 692 12;
 #X obj 38 150 cnv 15 477 222 empty empty empty 20 12 0 14 -203904 -66577
 0;
 #X obj 38 383 cnv 15 519 235 empty empty empty 20 12 0 14 -203904 -66577
@@ -47,12 +47,9 @@ semitonos (por defecto 2);
 #X text 102 589 ganancia de salida en dB (por defecto 0);
 #X text 144 477 usar o no usar anticlick (distinto de cero y 0 respectivamente)
 (por defecto 0) (consultar objeto adsr~);
-#X obj 623 311 cnv 15 385 63 empty empty empty 20 12 0 14 -261234 -66577
+#X obj 623 311 cnv 15 441 63 empty empty empty 20 12 0 14 -261234 -66577
 0;
 #X text 622 287 DEPENDENCIAS:;
-#X text 630 320 -para que la abstracción funcione debe instalarse
-la abstracción [adsr~] (https://github.com/teaecetyrannis/pd-adsr)
-;
 #X msg 48 160 order \$1;
 #X text 115 160 lados del polígono (se aceptan valores decimales)
 ;
@@ -75,14 +72,16 @@ filtrada y 99 prácticamente sin filtrar);
 #X obj 790 57 sig~;
 #X text 777 23 OUTLET 1:;
 #X text 830 57 canal der;
+#X text 630 320 -para que la abstracción funcione debe instalarse
+la abstracción [adsr~] (https://github.com/martindylan/pd-adsr);
 #X connect 2 0 3 0;
 #X connect 3 0 27 0;
 #X connect 4 0 5 0;
 #X connect 5 0 6 0;
 #X connect 10 0 11 0;
 #X connect 27 0 4 0;
-#X connect 34 0 36 0;
-#X connect 36 0 38 0;
-#X connect 38 0 40 0;
-#X connect 40 0 42 0;
-#X connect 42 0 44 0;
+#X connect 33 0 35 0;
+#X connect 35 0 37 0;
+#X connect 37 0 39 0;
+#X connect 39 0 41 0;
+#X connect 41 0 43 0;
